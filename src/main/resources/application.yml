@@ -5,12 +5,7 @@ spring:
     hibernate:
       show-sql: 'false'
       ddl-auto: none
-azure:
-  keyvault:
-    client-id: "c8dc3c12-f485-475d-8aab-d27b941ea1a2"
-    enabled: true
-    tenant-id: "903b4f18-f81b-401d-80e8-4ac5405a887e"
-    azure.keyvault.uri: "https://demoazure.vault.azure.net/"
+
 #  cloud:
 #    azure:
 #      keyvault:
