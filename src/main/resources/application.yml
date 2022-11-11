@@ -5,3 +5,10 @@ spring:
     hibernate:
       show-sql: 'false'
       ddl-auto: none
+  cloud:
+    azure:
+      keyvault:
+        secret:
+          property-sources[0]:
+            credential.managed-identity-enabled: true
+            endpoint: "https://demoazure.vault.azure.net/"
