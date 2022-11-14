@@ -94,6 +94,7 @@ public class ProductController {
 
     @GetMapping("/getSecret")
     public String readSecret(){
+        String result = "";
         return testing;
     }
 
