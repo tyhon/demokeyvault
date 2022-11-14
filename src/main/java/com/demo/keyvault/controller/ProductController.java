@@ -13,9 +13,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.core.env.Environment;
 
 import javax.validation.Valid;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @Controller
@@ -25,9 +28,17 @@ public class ProductController {
     private ProductRepository productRepository;
 
     @Autowired
+    private Environment env;
+
+//    public ProductController(Environment env) {
+//        this.env = env;
+//    }
+
+    @Autowired
     public ProductController(ProductService productService, ProductRepository productRepository){
         this.productService = productService;
         this.productRepository = productRepository;
+
     }
 
     @GetMapping("/products")
@@ -88,14 +99,26 @@ public class ProductController {
         return "redirect:/";
     }
 
-        @Value("testing")
-    private String testing;
+//        @Value("testing")
+//    private String testing;
 
 
     @GetMapping("/getSecret")
     public String readSecret(){
         String result = "";
-        return testing;
+        return "testing";
+    }
+
+//    @Value("testing")
+//    private String test;
+
+    @GetMapping("/get")
+    public String testEndpoint(Model model){
+//        String message = "testing value";
+        String message = env.getProperty("testing");
+
+        model.addAttribute("message", message);
+        return "testing";
     }
 
 }
