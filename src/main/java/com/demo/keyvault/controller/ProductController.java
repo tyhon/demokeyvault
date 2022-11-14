@@ -117,8 +117,6 @@ public class ProductController {
 
     @GetMapping("/get")
     public String testEndpoint(Model model){
-//        String message = "testing value";
-//        String message = env.getProperty("testing");
 
         model.addAttribute("message", test);
         return "testing";
