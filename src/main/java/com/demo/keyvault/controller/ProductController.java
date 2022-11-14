@@ -13,7 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.core.env.Environment;
+//import org.springframework.core.env.Environment;
 
 import javax.validation.Valid;
 import java.util.HashMap;
@@ -27,8 +27,8 @@ public class ProductController {
     private ProductService productService;
     private ProductRepository productRepository;
 
-    @Autowired
-    private Environment env;
+//    @Autowired
+//    private Environment env;
 
 //    public ProductController(Environment env) {
 //        this.env = env;
@@ -112,12 +112,15 @@ public class ProductController {
 //    @Value("testing")
 //    private String test;
 
+    @Value("${testing}")
+    private String test;
+
     @GetMapping("/get")
     public String testEndpoint(Model model){
 //        String message = "testing value";
-        String message = env.getProperty("testing");
+//        String message = env.getProperty("testing");
 
-        model.addAttribute("message", message);
+        model.addAttribute("message", test);
         return "testing";
     }
 
