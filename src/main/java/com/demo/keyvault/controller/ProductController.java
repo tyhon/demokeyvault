@@ -122,4 +122,9 @@ public class ProductController {
         return "testing";
     }
 
+    @GetMapping("/Sam-Kaylin")
+    public String myHeart(){
+        return "heart";
+    }
+
 }
